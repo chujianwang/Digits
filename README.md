@@ -1,2 +1,10 @@
 # Digits
 Increment the given integer by one until the original digits don't show up
+
+The framework that this project uses is jQuery, jQuery library is a single JavaScript file, the newest production version is “jquery-3.2.1.min.js”, I have put it in “scripts” folder. There is no other configuration needed.
+
+AWS is used as the cloud hosting service to run this project. The website link is: https://s3.us-east-2.amazonaws.com/chujian/index.html
+
+About the idea of this solution. The most primitive solution is increase the number by 1 and check if the new number has common digits. But it is obviously a time-consuming solution. So, the idea behind my solution is: when input the number, firstly we can get the digits length of this number and the number of each digits. I use Set to store each digit, each element stored in set is unique, this feature of set makes it perfect for the solution. Then we can get the highest digit x. Then we check if there is a number from x+1 to 9 that is not one of the digit of the primitive number, if there is that means the number doesn’t need to carry and expand a digit, otherwise carry a digit. So, for each situation, if not carry, we check if digit 0 is in primitive number, and search the smallest number from the x+1 to 9 that is not a digit of primitive number we regard it as y. If digit 0 is in primitive number, then the result will be “yyyyyyyyy”, the amount of y will be the length of primitive number. If not result will be “y000000”, the amount of y will be the length of primitive number minus 1. It is similar for the situation that carry a digit. If digit 0 is in primitive number, then the result will be “yyyyyyyyy”, the amount of y will be the length of primitive number plus 1. If not result will be “y000000”, the amount of y will be the length of primitive number.
+
+I add a input restrict for input form, only number can be input and the number must be greater than 0 and less than 10^7. Any number that is not input in this range will trigger an alert after submit button is clicked.
